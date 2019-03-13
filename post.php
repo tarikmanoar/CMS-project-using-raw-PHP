@@ -16,7 +16,7 @@
                 $postItem = $dbconn->query("SELECT * FROM posts WHERE id='$p_id'");
                 while ($postRow = mysqli_fetch_assoc($postItem)) {
                     ?>
-                    <!-- First Blog Post -->
+                    <!--Blog Post  -->
                         <h2><?php echo $postRow['post_title']; ?></h2>
                         <p class="lead">by <a href="index.php"><?php echo $postRow['post_author']; ?></a></p>
                         <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $postRow['date']; ?></p>
