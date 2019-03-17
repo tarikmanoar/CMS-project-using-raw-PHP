@@ -27,6 +27,19 @@
                 </h1>
             </div>
             <div class="col-lg-12">
+                <form action="" method="POST" accept-charset="utf-8">
+                    <div id="bulkOptionContainer" class="col-xs-4">
+                        <select name="" id="" class="form-control">
+                            <option value="">Select Option</option>
+                            <option value="">Publish</option>
+                            <option value="">Draft</option>
+                            <option value="">Delete</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success" name="submit"><span class="glyphicon glyphicon-ok" area-hidden="true"></span></button>
+                        <a href="addpost.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" area-hidden="true"></span></a>
+                    </div>
                 <table class="table table-inverse table-bordered table-dark table-hover">
                     <thead>
                         <tr>
@@ -59,11 +72,12 @@
                                     <td><?php echo $row['post_tags'] ?></td>
                                     <td><?php echo $row['post_comment_count'] ?></td>
                                     <td><?php echo $row['post_status'] ?></td>
-                                    <td style="width: 140px;"><a href="editpost.php?edit=<?php echo $row['id'] ?>"><p class="btn btn-success">Edit</p></a><a href="?delete=<?php echo $row['id'] ?>"><p style="margin-left:5px;" class="btn btn-danger">Delete</p></a></td>
+                                    <td style="width: 140px;"><a href="editpost.php?edit=<?php echo $row['id'] ?>"><p class="btn btn-success"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a><a href="?delete=<?php echo $row['id'] ?>"><p style="margin-left:5px;" class="btn btn-danger"><span class="glyphicon glyphicon-remove" area-hidden="true"></span></p></a></td>
                                 </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+                </form>
             </div>
         </div>
     </div>

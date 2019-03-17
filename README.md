@@ -1,1 +1,1 @@
-# CMS-project-using-row-PHP
+# CMS-project-using-row-PHP This release introduces some changes to ensure GitGutter to coexist well with the new Incremental Diff feature of CMS.

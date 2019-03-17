@@ -16,7 +16,7 @@
         <!-- /.input-group -->
     </div>
     <!-- Blog Categories Well -->
-    <div class="well">
+<!--     <div class="well">
         <h4>Blog Categories</h4>
         <div class="row">
             <div class="col-lg-12 ">
@@ -32,10 +32,13 @@
             <?php endwhile ?>
             </div>
         </div>
-        <!-- /.row -->
-    </div>
+    </div> -->
     <!-- Side Widget Well -->
     <!-- Login -->
+<?php if ($_SESSION['username']) {
+
+}else {
+?>
     <div class="well">
         <h4>Login</h4>
         <div class="row">
@@ -45,7 +48,7 @@
                         <input type="text" name="username" class="form-control" placeholder="username">
                     </div>
                     <div class="input-group">
-                        <input name="password" type="text" class="form-control" placeholder="password">
+                        <input name="password" type="password" class="form-control" placeholder="password">
                         <span class="input-group-btn">
                             <button name="lgoin" class="btn btn-primary" type="submit">
                                 Login
@@ -57,6 +60,9 @@
         </div>
         <!-- /.row -->
     </div>
+<?php
+} ?>
+
     <!-- Login -->
     <div class="well">
         <h4>Side Widget Well</h4>

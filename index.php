@@ -7,7 +7,6 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-
             <?php
                 mysqli_set_charset($dbconn,"utf-8");  
                 $postItem = $dbconn->query("SELECT * FROM posts WHERE post_status ='Publised' ORDER BY id DESC");
