@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th rowspan="9" style="vertical-align: middle;text-align: center;"> <img src="<?php echo $row['user_images'] ?>" alt="ERROR" style="width: 250px;" class="img-fluid "></th>
+                            <th rowspan="9" style="vertical-align: middle;text-align: center;"> <img src="<?php echo $row['user_images'] ?>" alt="ERROR" title="This is user photo" style="width: 250px;" class="img-fluid "></th>
                         </tr>
                         <tr>
                             <td>USERNAME:</td>
@@ -55,7 +55,7 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <a style="display: block;text-align: center;" href="users.php?var=edit_users&edit=<?php echo $row['user_id'] ?>"><p class="btn btn-success">Edit</p></a>
+                                <a style="display: block;text-align: center;" href="users.php?var=edit_users&edit=<?php echo $row['user_id'] ?>"><p class="btn btn-info" title="Edit User Profile"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a>
                             </td>
                         </tr>
                     </tbody>

@@ -73,12 +73,12 @@
                                     <td><?php echo $row['user_firstname'] ?></td>
                                     <td><?php echo $row['user_lastname'] ?></td>
                                     <td>
-                                        <a href="?admin=<?php echo $row['user_id'] ?>"><p class="btn btn-primary">Admin</p></a>
-                                        <a href="?subs=<?php echo $row['user_id'] ?>"><p class="btn btn-info">Subscriber</p></a>
+                                        <a href="?admin=<?php echo $row['user_id'] ?>"><p class="btn btn-primary" title="Apoint as Admin">Admin</p></a>
+                                        <a href="?subs=<?php echo $row['user_id'] ?>"><p class="btn btn-info" title="Apoint as Subscriber">Subscriber</p></a>
                                     </td>
                                     <td>
-                                    	<a href="users.php?var=edit_users&edit=<?php echo $row['user_id'] ?>"><p class="btn btn-success">Edit</p></a>
-                                    	<a href="users.php?delete=<?php echo $row['user_id'] ?>"><p class="btn btn-danger">Delete</p></a>
+                                    	<a href="users.php?var=edit_users&edit=<?php echo $row['user_id'] ?>"><p class="btn btn-success" title="Edit User Profile"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a>
+                                    	<a href="users.php?delete=<?php echo $row['user_id'] ?>"><p class="btn btn-danger" title="Delete User Profile"><span class=" glyphicon glyphicon-remove" area-hidden="true"></span></p></a>
                                     </td>
                                 </tr>
                         <?php } ?>

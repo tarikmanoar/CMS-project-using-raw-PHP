@@ -81,12 +81,12 @@
 
                                     <td><?php echo $row['comment_status'] ?></td>
                                     <td>
-                                        <a href="?approved=<?php echo $row['comment_id'] ?>"><p class="btn btn-primary">Approved</p></a>
-                                        <a href="?unapproved=<?php echo $row['comment_id'] ?>"><p class="btn btn-info">Unapproved</p></a>
+                                        <a href="?approved=<?php echo $row['comment_id'] ?>"><p title="Approve This Comment" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" area-hidden="true"></span></p></a>
+                                        <a href="?unapproved=<?php echo $row['comment_id'] ?>"><p title="Unapprove This Comment" class="btn btn-info"><span class="glyphicon glyphicon-eye-close" area-hidden="true"></span></p></a>
                                     </td>
                                     <td>
-                                    	<a href="Comment.php?var=editComment&edit=<?php echo $row['comment_id'] ?>"><p class="btn btn-success">Edit</p></a>
-                                    	<a href="Comment.php?delete=<?php echo $row['comment_id'] ?>"><p class="btn btn-danger">Delete</p></a>
+                                    	<a href="Comment.php?var=editComment&edit=<?php echo $row['comment_id'] ?>"><p class="btn btn-success" title="Edit this comment"><span class=" glyphicon glyphicon-edit"></span></p></a>
+                                    	<a href="Comment.php?delete=<?php echo $row['comment_id'] ?>"><p class="btn btn-danger" title="Delete Comment"><span class=" glyphicon glyphicon-remove"></span></p></a>
                                     </td>
                                 </tr>
                         <?php } ?>

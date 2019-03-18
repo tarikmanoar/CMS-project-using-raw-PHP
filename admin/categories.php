@@ -103,7 +103,7 @@
                                 <tr>
                                     <td><?php echo $row['id']; ?></td>
                                     <td><?php echo $row['ctg_title']; ?></td>
-                                    <td><a href="?edit=<?php echo $row['id']?>" class="text-primary"> &#9999;</a>| <a href="?delete=<?php echo $row['id'] ?>" class="text-danger bg-dark">&#8998;</a></td>
+                                    <td><a href="?edit=<?php echo $row['id']?>" class="text-primary"><span class=" btn btn-primary glyphicon glyphicon-edit" area-hidden="true"></span></a><a href="?delete=<?php echo $row['id'] ?>" class="text-danger bg-dark"><span class="btn btn-danger glyphicon glyphicon-remove" area-hidden="true"></span></a></td>
                                 </tr>
                             </tbody>
                         <?php endwhile ?>
