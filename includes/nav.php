@@ -13,7 +13,7 @@
         </div>
 
             <!-- Top Menu Items -->
-            <?php if ($_SESSION['username']) {
+            <?php if (isset($_SESSION['username'])) {
                ?>
             <ul class="nav navbar-right top-nav">
                  <li><a href="admin" target="blank" class="navbar-right">Admin</a></li>

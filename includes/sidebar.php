@@ -35,7 +35,7 @@
     </div> -->
     <!-- Side Widget Well -->
     <!-- Login -->
-<?php if ($_SESSION['username']) {
+<?php if (isset($_SESSION['username'])) {
 
 }else {
 ?>
