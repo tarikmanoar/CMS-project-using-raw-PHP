@@ -81,7 +81,7 @@
                      <div class="form-group">
                         <label class="form-control-label">Post Status</label>
                          <select required="on" name="post_status" class="form-control">
-                             <option value="Publised">Publised</option>
+                             <option value="Published">Published</option>
                              <option value="Draft">Draft</option>
                              <option value="Colse">Colse</option>
                          </select>

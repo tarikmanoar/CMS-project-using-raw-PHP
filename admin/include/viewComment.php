@@ -40,9 +40,48 @@
                 </h1>
             </div>
             <div class="col-lg-12">
+<?php 
+    // Bulk Oparation
+    if (isset($_POST['checkBoxArray'])) {
+        foreach ($_POST['checkBoxArray'] as $checkBoxValue) {
+            $bulkOption = $_POST['bulkOption'];
+            switch ($bulkOption) {
+                case 'APPROVED':
+                    $bulkPublish = mysqli_query($dbconn,"UPDATE comments SET comment_status = '$bulkOption' WHERE comment_id='$checkBoxValue'");
+                    break;
+                case 'UNAPPROVED':
+                    $bulkPublish = mysqli_query($dbconn,"UPDATE comments SET comment_status = '$bulkOption' WHERE comment_id='$checkBoxValue'");
+                    break;
+                case 'Delete':
+                    $bulkPublish = mysqli_query($dbconn,"DELETE FROM comments WHERE comment_id='$checkBoxValue'");
+                    break;
+                
+                default:
+                    echo "<h1 class='alert alert-danger text-center'>Select One Oparation</h1>";
+                    break;
+            }
+            
+        }
+    }
+
+ ?>
+                <form action="" method="POST" accept-charset="utf-8">
+                    <div id="bulkOptionContainer" class="col-xs-4">
+                        <select name="bulkOption" id="" class="form-control">
+                            <option value="">Select Option</option>
+                            <option value="APPROVED">Approve</option>
+                            <option value="UNAPPROVED">Unapprove</option>
+                            <option value="Delete">Delete</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success" name="submit"><span class="glyphicon glyphicon-ok" area-hidden="true"></span></button>
+                        <a href="addpost.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" area-hidden="true"></span></a>
+                    </div>
                 <table class="table table-inverse table-bordered table-dark table-hover">
                     <thead>
                         <tr>
+                            <th><input type="checkbox" name="" id="selectAllBoxes" class="form-check-input"></th>
                             <th>ID</th>
                             <th>Post ID</th>
                             <th>Comment Author</th>
@@ -63,6 +102,7 @@
                                 $comment_post_id = $row['comment_post_id'];
                                 ?>
                                 <tr>
+                                    <td><input type="checkbox" name="checkBoxArray[]" value="<?php echo $row['comment_id'] ; ?>" class="checkbox form-check-input" ></td>
                                     <td><?php echo $counter++; ?></td>
                                     <td><?php echo $row['comment_post_id'] ?></td>
                                     <td><?php echo $row['comment_author'] ?></td>
@@ -91,7 +131,8 @@
                                 </tr>
                         <?php } ?>
                     </tbody>
-                </table>
+                </table> 
+                </form>
             </div>
         </div>
     </div>

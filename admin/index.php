@@ -125,7 +125,7 @@
         <?php 
 
         //Draft Post Query
-        $post_row =mysqli_query($dbconn,"SELECT * FROM posts WHERE post_status = 'Publised' ");
+        $post_row =mysqli_query($dbconn,"SELECT * FROM posts WHERE post_status = 'Published' ");
         $post_row = mysqli_num_rows($post_row);
         //Draft Post Query
         $draft_query =mysqli_query($dbconn,"SELECT * FROM posts WHERE post_status = 'Draft' ");

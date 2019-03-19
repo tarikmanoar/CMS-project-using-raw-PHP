@@ -1,8 +1,5 @@
 <?php include_once "include/header.php" ?>
 <?php include_once "include/nav.php" ?>
-
-
-
                 <?php 
 
                     if (isset($_GET['var'])) {

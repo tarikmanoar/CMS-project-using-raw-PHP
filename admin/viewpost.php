@@ -27,13 +27,41 @@
                 </h1>
             </div>
             <div class="col-lg-12">
+
+
+<?php 
+    // Bulk Oparation
+    if (isset($_POST['checkBoxArray'])) {
+        foreach ($_POST['checkBoxArray'] as $checkBoxValue) {
+            $bulkOption = $_POST['bulkOption'];
+            switch ($bulkOption) {
+                case 'Published':
+                    $bulkPublish = mysqli_query($dbconn,"UPDATE posts SET post_status = '$bulkOption' WHERE id='$checkBoxValue'");
+                    break;
+                case 'Draft':
+                    $bulkPublish = mysqli_query($dbconn,"UPDATE posts SET post_status = '$bulkOption' WHERE id='$checkBoxValue'");
+                    break;
+                case 'Delete':
+                    $bulkPublish = mysqli_query($dbconn,"DELETE FROM posts WHERE id='$checkBoxValue'");
+                    break;
+                
+                default:
+                    echo "<h1 class='alert alert-danger text-center'>Select One Oparation</h1>";
+                    break;
+            }
+        }
+    }
+
+ ?>
+
+
                 <form action="" method="POST" accept-charset="utf-8">
                     <div id="bulkOptionContainer" class="col-xs-4">
-                        <select name="" id="" class="form-control">
+                        <select name="bulkOption" id="" class="form-control">
                             <option value="">Select Option</option>
-                            <option value="">Publish</option>
-                            <option value="">Draft</option>
-                            <option value="">Delete</option>
+                            <option value="Published">Published</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Delete">Delete</option>
                         </select>
                     </div>
                     <div class="col-xs-4">
@@ -43,6 +71,7 @@
                 <table class="table table-inverse table-bordered table-dark table-hover">
                     <thead>
                         <tr>
+                            <th><input type="checkbox" name="" id="selectAllBoxes" class="form-check-input"></th>
                             <th>ID</th>
                             <th class="text-center">Title</th>
                             <th class="text-center">Category</th>
@@ -57,12 +86,13 @@
                     </thead>
                     <tbody>
                         <?php
-                            $result = mysqli_query($dbconn,"SELECT * FROM posts");
+                            $result = mysqli_query($dbconn,"SELECT * FROM posts ORDER BY id DESC");
                             $counter = 1;
                             while ($row = mysqli_fetch_assoc($result)){
                                 $post_id = $row['post_ctg_id'];
                                 ?>
                                 <tr>
+                                    <td><input type="checkbox" name="checkBoxArray[]" value="<?php echo $row['id'] ; ?>" class="checkbox form-check-input" ></td>
                                     <td><?php echo $counter++; ?></td>
                                     <td><?php echo $row['post_title'] ?></td>
                                     <td><?php echo $row['post_ctg_id'] ?></td>

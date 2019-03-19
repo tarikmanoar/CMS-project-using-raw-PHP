@@ -12,11 +12,11 @@
                 if (isset($_GET['p_cat_id'])) {
                      $p_cat_id = $_GET['p_cat_id'];
                  } 
-                $postItem = $dbconn->query("SELECT * FROM posts WHERE post_ctg_id = '$p_cat_id' AND post_status ='Publised' ORDER BY id DESC" );
+                $postItem = $dbconn->query("SELECT * FROM posts WHERE post_ctg_id = '$p_cat_id' AND post_status ='Published' ORDER BY id DESC" );
 
                 while ($postRow = mysqli_fetch_assoc($postItem)) {
                     $post_status = $postRow['post_status'];
-                    if ($post_status !== 'Publised') {
+                    if ($post_status !== 'Published') {
                         echo 'string';
                     }else { 
                     ?>

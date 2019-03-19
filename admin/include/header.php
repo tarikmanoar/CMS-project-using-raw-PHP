@@ -43,6 +43,7 @@
 
     <!-- google charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="loader.js"></script>
     <script type="text/javascript" src="js/nicEdit.js"></script>
     <script type="text/javascript" src="js/myJs.js"></script>
 

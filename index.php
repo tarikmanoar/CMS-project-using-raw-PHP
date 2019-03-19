@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <?php
                 mysqli_set_charset($dbconn,"utf-8");  
-                $postItem = $dbconn->query("SELECT * FROM posts WHERE post_status ='Publised' ORDER BY id DESC");
+                $postItem = $dbconn->query("SELECT * FROM posts WHERE post_status ='Published' ORDER BY id DESC");
                 while ($postRow = mysqli_fetch_assoc($postItem)) {
                     ?>
                     <!-- First Blog Post -->
