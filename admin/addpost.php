@@ -36,6 +36,7 @@
 
                         $sql = "INSERT INTO posts( post_ctg_id, post_title,post_author,date,post_image, post_content, post_tags,post_status) VALUES ('$post_ctg_id','$post_title','$post_author',NOW(),'$post_image_des', '$post_content','$post_tags','$post_status')";
                         $result = mysqli_query($dbconn,$sql);
+                        echo "<p class='bg-info'>Post has been Updated. <a target='blank' href='viewpost.php'>View Post</a></p>";
                         if (!$result) {
                             die("Query Failed " .mysqli_error($dbconn));
                         }else {
@@ -62,11 +63,11 @@
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Title</label>
-                         <input type="text" class="form-control" name="post_title" >
+                         <input type="text" class="form-control" name="post_title" autocomplete="off">
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Author</label>
-                         <input type="text" class="form-control" name="post_author" >
+                         <input type="text" class="form-control" name="post_author" autocomplete="off">
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Images</label>
@@ -78,7 +79,7 @@
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Tags</label>
-                         <input type="text" class="form-control" name="post_tags" >
+                         <input type="text" class="form-control" name="post_tags" autocomplete="off">
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Status</label>

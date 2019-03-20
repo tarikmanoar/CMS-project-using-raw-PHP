@@ -56,7 +56,7 @@
 
 
                 <form action="" method="POST" accept-charset="utf-8">
-                    <div id="bulkOptionContainer" class="col-xs-4">
+                    <div id="bulkOptionContainer" class="col-xs-4" style="padding-left: 0px;margin-bottom: 15px;">
                         <select name="bulkOption" id="" class="form-control">
                             <option value="">Select Option</option>
                             <option value="Published">Published</option>
@@ -79,8 +79,9 @@
                             <th>Author</th>
                             <th>Date</th>
                             <th>Post Tag</th>
-                            <th>Post Comment</th>
+                            <th>cmt</th>
                             <th>Status</th>
+                            <th>View</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -92,7 +93,7 @@
                                 $post_id = $row['post_ctg_id'];
                                 ?>
                                 <tr>
-                                    <td><input type="checkbox" name="checkBoxArray[]" value="<?php echo $row['id'] ; ?>" class="checkbox form-check-input" ></td>
+                                    <td><input type="checkbox" name="checkBoxArray[]" value="<?php echo $row['id'] ; ?>" class="checkbox" ></td>
                                     <td><?php echo $counter++; ?></td>
                                     <td><?php echo $row['post_title'] ?></td>
                                     <td><?php echo $row['post_ctg_id'] ?></td>
@@ -102,6 +103,7 @@
                                     <td><?php echo $row['post_tags'] ?></td>
                                     <td><?php echo $row['post_comment_count'] ?></td>
                                     <td><?php echo $row['post_status'] ?></td>
+                                    <td><a href="../post.php?p_id=<?php echo $row['id'] ?>" target="_blank"><p title="Approve This Comment" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" area-hidden="true"></span></p></a></td>
                                     <td style="width: 140px;"><a href="editpost.php?edit=<?php echo $row['id'] ?>"><p class="btn btn-success"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a><a href="?delete=<?php echo $row['id'] ?>"><p style="margin-left:5px;" class="btn btn-danger"><span class="glyphicon glyphicon-remove" area-hidden="true"></span></p></a></td>
                                 </tr>
                         <?php } ?>

@@ -66,7 +66,7 @@
 
  ?>
                 <form action="" method="POST" accept-charset="utf-8">
-                    <div id="bulkOptionContainer" class="col-xs-4">
+                    <div id="bulkOptionContainer" class="col-xs-4" style="padding-left: 0px;margin-bottom: 15px;">
                         <select name="bulkOption" id="" class="form-control">
                             <option value="">Select Option</option>
                             <option value="APPROVED">Approve</option>

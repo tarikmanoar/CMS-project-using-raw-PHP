@@ -73,7 +73,7 @@
                     <h4>Leave a Comment:</h4>
                     <form role="form" method="post" action="" >
                         <div class="form-group">
-                            <input type="text" name="commemt_author" class="form-control" placeholder="Your Name" autocomplete="off">
+                            <input type="text" name="commemt_author" class="form-control" placeholder="Your Name" autocomplete="off" required >
                         </div>
                         <div class="form-group">
                             <input type="email" name="commemt_email" class="form-control" placeholder="example@mail.com" autocomplete="off">
