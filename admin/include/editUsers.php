@@ -33,14 +33,13 @@
                         $post_image_des = "upload/user/".$user_images;
                         move_uploaded_file($user_images_temp,$post_image_des);
                         if(empty($user_images)) {
-                            $query = "SELECT * FROM users WHERE user_id = $id ";
+                            $query = "SELECT * FROM users WHERE user_id = '$id' ";
                             $select_image = mysqli_query($dbconn,$query);
-                            
-                            while($row = mysqli_fetch_array($select_image)) {
-                            
-                                $user_images = $row['user_images'];
-                        
+                            while ($row = mysqli_fetch_array($select_image)) {
+                                echo $row['user_images'];
                             }
+                            
+                            
                         }
 
                         //$date = date("Y-m-d h:i:s-a");
@@ -48,7 +47,7 @@
                         if (!$result) {
                             die("Query Failed" . mysqli_error($dbconn));
                         }else {
-                            header('Location: users.php');
+                            //header('Location: users.php');
                         }
                     }
                  ?>
@@ -72,7 +71,7 @@
                      <div class="form-group">
                         <label class="form-control-label">User Images</label><br>
                         <img src="<?php echo $row['user_images'] ?>" alt="No Images Here" width="150px" > <br>
-                         <input type="file" class="form-control" name="user_images" required>
+                         <input type="file" class="form-control" name="user_images">
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">User Role</label>
