@@ -14,9 +14,9 @@
                 <h3 class="page-header text-uppercase">Add User</h3>
                 <?php
                     if (isset($_POST['submit'])) {
-                        $username = $_POST['username'];
-                        $user_firstname= $_POST['user_firstname'];
-                        $user_lastname = $_POST['user_lastname'];
+                        $username =mysqli_real_escape_string($dbconn, $_POST['username']);
+                        $user_firstname=mysqli_real_escape_string($dbconn,$_POST['user_firstname']) ;
+                        $user_lastname =mysqli_real_escape_string($dbconn,$_POST['user_lastname']) ;
 
 
                         $p_img = $_FILES['user_images'];
@@ -24,10 +24,13 @@
                         $p_img_temp =  $p_img['tmp_name'];
                         $post_image_des = "upload/user/".$p_img_name;
                         move_uploaded_file($p_img_temp,$post_image_des);
+                        if(empty($user_images)) {
+                             $post_image_des = "upload/user/admin.png";
+                        }
 
 
-                        $user_email = $_POST['user_email'];
-                        $user_password = $_POST['user_password'];
+                        $user_email =mysqli_real_escape_string($dbconn,$_POST['user_email']) ;
+                        $user_password =mysqli_real_escape_string($dbconn,$_POST['user_password']) ;
                         $user_role = $_POST['user_role'];
                         //$date = date("Y-m-d h:i:s-a");
                         //$post_comment_count = 4;

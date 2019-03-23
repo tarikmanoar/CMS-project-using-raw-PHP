@@ -103,8 +103,13 @@
                                     <td><?php echo $row['post_tags'] ?></td>
                                     <td><?php echo $row['post_comment_count'] ?></td>
                                     <td><?php echo $row['post_status'] ?></td>
-                                    <td><a href="../post.php?p_id=<?php echo $row['id'] ?>" target="_blank"><p title="Approve This Comment" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" area-hidden="true"></span></p></a></td>
-                                    <td style="width: 140px;"><a href="editpost.php?edit=<?php echo $row['id'] ?>"><p class="btn btn-success"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a><a href="?delete=<?php echo $row['id'] ?>"><p style="margin-left:5px;" class="btn btn-danger"><span class="glyphicon glyphicon-remove" area-hidden="true"></span></p></a></td>
+                                    <td>
+                                        <a href="../post.php?p_id=<?php echo $row['id'] ?>" target="_blank"><p title="Approve This Comment" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" area-hidden="true"></span></p></a>
+                                    </td>
+                                    <td style="width: 140px;">
+                                        <a href="editpost.php?edit=<?php echo $row['id'] ?>"><p class="btn btn-success"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a>
+                                        <a href="?delete=<?php echo $row['id'] ?>"><p style="margin-left:5px;" class="btn btn-danger"><span class="glyphicon glyphicon-remove" area-hidden="true"></span></p></a>
+                                    </td>
                                 </tr>
                         <?php } ?>
                     </tbody>

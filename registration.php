@@ -6,9 +6,11 @@
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
+
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
                 <h1>Register</h1>
+
                     <?php
                     if (isset($_POST['submit'])) {
                         $username = mysqli_real_escape_string($dbconn,$_POST['username']); 
@@ -25,6 +27,11 @@
 
                         $user_email = mysqli_real_escape_string($dbconn, $_POST['user_email']);
                         $user_password = mysqli_real_escape_string($dbconn, $_POST['user_password']);
+                        $randQuery  = mysqli_query($dbconn,"SELECT randSalt FROM users");
+                        while ($randRow = mysqli_fetch_array($randQuery)) {
+                            $salt = $randRow['randSalt'];
+                        }
+                        $user_password = crypt($user_password,$salt);
 
                         $user_role = "Subscriber";
                         //$date = date("Y-m-d h:i:s-a");
@@ -34,17 +41,34 @@
                             if (!$result) {
                                 die("Query Failed " .mysqli_error($dbconn));
                             }else {
-                                ?>
-                                <script>alert('Registration Successful!')</script>
-                                <?php
+                                //$_SESSION['msg'] = "<script type='text/javascript'>swal('Good job!', 'Data successfully update!', 'success');</script>";
+                                $_SESSION['msg'] = "<div class='col-md-12'><div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                <h4>Data successfully update!</h4>
+                                </div><div class='row'><div class='col-md-12'></div></div></div>";
+                            //header("Location: registration.php");
                             }    
                         }else {
-                            echo "<script>alert('All Fild are required')</script>";
+                            //$_SESSION['msg'] = "<script type='text/javascript'>swal('Good job!', 'Data successfully update!', 'error');</script>";
+                            $_SESSION['msg'] = "<div class='col-md-12'><div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                <h4>Fields Can't be Empty!</h4>
+                                </div><div class='row'><div class='col-md-12'></div></div></div>";
+
                         }
                         
                     }
                  ?>
                  <form action="" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="text-center">
+                        <?php 
+                        if (isset($_SESSION['msg'])) {
+                            echo $_SESSION['msg']; 
+                            unset($_SESSION['msg']);
+                        } 
+                        ?>
+                        
+                    </div>
                      <div class="form-group">
                         <label class="form-control-label">Username</label>
                          <input type="text" class="form-control" name="username"  >

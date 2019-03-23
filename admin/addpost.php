@@ -41,7 +41,7 @@
                             die("Query Failed " .mysqli_error($dbconn));
                         }else {
                             ?>
-                            <script>alert('Post Added Successfully!')</script>
+                            <script type='text/javascript'>swal('Good job!', 'Data successfully update!', 'success');</script>
                             <?php
                         }
                     }

@@ -20,11 +20,11 @@
                     }
                     if (isset($_POST['submit'])) {
                         $id = $_GET['edit'];
-                        $username= $_POST['username'];
-                        $user_firstname = $_POST['user_firstname'];
-                        $user_lastname = $_POST['user_lastname'];
-                        $user_password = $_POST['user_password'];
-                        $user_email = $_POST['user_email'];
+                        $username= mysqli_real_escape_string($dbconn,$_POST['username']) ;
+                        $user_firstname =mysqli_real_escape_string($dbconn, $_POST['user_firstname']);
+                        $user_lastname =mysqli_real_escape_string($dbconn, $_POST['user_lastname']);
+                        $user_password =mysqli_real_escape_string($dbconn, $_POST['user_password']);
+                        $user_email =mysqli_real_escape_string($dbconn, $_POST['user_email']);
                         $user_role = $_POST['user_role'];
 
                         //Images Upload
@@ -36,7 +36,7 @@
                             $query = "SELECT * FROM users WHERE user_id = '$id' ";
                             $select_image = mysqli_query($dbconn,$query);
                             while ($row = mysqli_fetch_array($select_image)) {
-                                echo $row['user_images'];
+                                $post_image_des = $row['user_images'];
                             }
                             
                             
@@ -47,7 +47,7 @@
                         if (!$result) {
                             die("Query Failed" . mysqli_error($dbconn));
                         }else {
-                            //header('Location: users.php');
+                            header('Location: users.php');
                         }
                     }
                  ?>

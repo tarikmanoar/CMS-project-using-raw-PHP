@@ -56,12 +56,15 @@
                         </span>
                     </div>
                 </form>
+                <a href="registration.php" target="_blank" class="text-right">SignUp</a>
             </div>
         </div>
         <!-- /.row -->
     </div>
 <?php
-} ?>
+
+}  
+?>
 
     <!-- Login -->
     <div class="well">
