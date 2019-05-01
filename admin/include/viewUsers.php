@@ -40,13 +40,51 @@
                 </h1>
             </div>
             <div class="col-lg-12">
+                <?php 
+                    // Bulk Oparation
+                    if (isset($_POST['checkBoxArray'])) {
+                        foreach ($_POST['checkBoxArray'] as $checkBoxValue) {
+                             $bulkOption = $_POST['bulkOption'];
+                            switch ($bulkOption) {
+                                case 'Admin':
+                                    $bulkPublish = mysqli_query($dbconn,"UPDATE users SET user_role = 'Admin'  WHERE user_id='$checkBoxValue'");
+                                    break;
+                                case 'Subscriber':
+                                    $bulkPublish = mysqli_query($dbconn,"UPDATE users SET user_role = 'Subscriber'  WHERE user_id='$checkBoxValue'");
+                                    break;
+                                case 'Delete':
+                                    $bulkPublish = mysqli_query($dbconn,"DELETE FROM users WHERE user_id='$checkBoxValue'");
+                                    break;
+                                
+                                default:
+                                    echo "<h1 class='alert alert-danger text-center'>Select One Oparation</h1>";
+                                    break;
+                            }
+                        }
+                    }
+
+                 ?>
+                <form action="" method="POST" accept-charset="utf-8">
+                     <div id="bulkOptionContainer" class="col-xs-4" style="padding-left: 0px;margin-bottom: 15px;">
+                        <select name="bulkOption" id="" class="form-control">
+                            <option value="">Select Option</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Subscriber">Subscriber</option>
+                            <option value="Delete">Delete</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success" name="submit"><span class="glyphicon glyphicon-ok" area-hidden="true"></span></button>
+                        <a href="addUsers.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" area-hidden="true"></span></a>
+                    </div>
                 <table class="table table-inverse table-bordered table-dark table-hover">
                     <thead>
                         <tr>
+                            <th><input type="checkbox" name="" id="selectAllBoxes" class="form-check-input"></th>
                             <th>No</th>
                             <th>ID</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Images</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -63,10 +101,10 @@
                             while ($row = mysqli_fetch_assoc($result)){
                                 ?>
                                 <tr>
+                                    <td><input type="checkbox" name="checkBoxArray[]" value="<?php echo $row['user_id'] ; ?>" class="checkbox" ></td>
                                     <td><?php echo $counter++; ?></td>
                                     <td><?php echo $row['user_id'] ?></td>
                                     <td><?php echo $row['username'] ?></td>
-                                    <td><?php echo trim($row['user_password']) ?></td>
                                     <td><img width="150px"src="<?php echo $row['user_images'] ?>" alt="No Images "></td>
                                     <td><?php echo $row['user_email'] ?></td>
                                     <td><?php echo $row['user_role'] ?></td>
@@ -84,6 +122,8 @@
                         <?php } ?>
                     </tbody>
                 </table>
+
+                </form>
             </div>
         </div>
     </div>
