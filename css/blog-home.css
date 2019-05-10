@@ -13,3 +13,70 @@ body h2{
 footer {
     margin: 50px 0;
 }
+h2.widget-title {
+    text-align: center;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.desc {
+    color: #8E99A9;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.social-icons ul {
+    text-align: center;
+    list-style: none;
+    margin-left: -40px;
+}
+
+.social-icons ul li {
+    border: none;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.social-icons ul li a {
+    display: block;
+    width: 30px;
+    text-align: center;
+}
+
+.social-icons ul li a img {
+    width: 32px;
+}
+.most-post ul {
+    margin-left: -40px;
+}
+
+.most-post ul li {
+    margin-bottom: 20px;
+    padding: 0 !important;
+    list-style: none;
+}
+
+.thumbnail-wrap{
+    width: 250px;
+}
+.thumbnail-wrap img {
+    margin-left: 45px;
+}
+.most-post {
+    margin-top: 25px;
+}
+a.active{
+    background: #0089dc !important;
+    color: #fff;
+}
+.pager li>a{
+
+    border-radius:0px !important;
+}
+.pager li>a:hover{
+    background:#4cb2f1 !important;
+    transition: 1s;
+    border: 1px solid #ff90a4;
+}

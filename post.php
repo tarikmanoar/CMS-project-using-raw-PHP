@@ -11,15 +11,20 @@
             <?php
                 if (isset($_GET['p_id'])) {
                     $p_id =$_GET['p_id'];
-                }
                 
+                $viewQuery = mysqli_query($dbconn , "UPDATE posts SET post_views_count = post_views_count + 1 WHERE id='$p_id' ");
+
                 $postItem = $dbconn->query("SELECT * FROM posts WHERE id='$p_id'");
                 while ($postRow = mysqli_fetch_assoc($postItem)) {
                     ?>
                     <!--Blog Post  -->
                         <h2><?php echo $postRow['post_title']; ?></h2>
                         <p class="lead">by <a href="index.php"><?php echo $postRow['post_author']; ?></a></p>
-                        <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $postRow['date']; ?></p>
+                        <p>
+                            <span class="glyphicon glyphicon-time"></span> Posted on <?php echo $postRow['date']; ?>&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-eye-open"> </span>&nbsp;&nbsp;<?php echo $postRow['post_views_count']; ?> Views &nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;<?php echo $postRow['post_comment_count']; ?> &nbsp; Comments
+                        </p>
                         <hr>
                         <img style="max-height: 345px;width:100%;" class="img-responsive" src="admin/<?php echo $postRow['post_image']; ?>" alt='POST IMAGE ERROR'>
                         
@@ -27,21 +32,11 @@
                         <p><?php echo $postRow['post_content']; ?></p>
                         <hr>
                     <?php
+                    }
+                }else{
+                    header("Location: index.php");
                 }
-
             ?>
-
-
-
-            <!-- Pager -->
-            <ul class="pager">
-                <li class="previous">
-                    <a href="#">&larr; Older</a>
-                </li>
-                <li class="next">
-                    <a href="#">Newer &rarr;</a>
-                </li>
-            </ul>
         </div>
 <!-- Blog Sidebar Widgets Column -->
 <?php include_once 'includes/sidebar.php' ?>

@@ -1,5 +1,6 @@
 <?php include_once "include/header.php" ?>
 <?php include_once "include/nav.php" ?>
+<?php include_once "include/deleteModal.php" ?>
 
 
         <div id="page-wrapper">
@@ -103,7 +104,15 @@
                                 <tr>
                                     <td><?php echo $row['id']; ?></td>
                                     <td><?php echo $row['ctg_title']; ?></td>
-                                    <td><a href="?edit=<?php echo $row['id']?>" class="text-primary"><span class=" btn btn-primary glyphicon glyphicon-edit" area-hidden="true"></span></a><a href="?delete=<?php echo $row['id'] ?>" class="text-danger bg-dark"><span class="btn btn-danger glyphicon glyphicon-remove" area-hidden="true"></span></a></td>
+                                    <td>
+                                        <a href="?edit=<?php echo $row['id']?>" class="text-primary">
+                                            <span class=" btn btn-primary glyphicon glyphicon-edit" area-hidden="true"></span>
+                                        </a>
+
+                                        <a href="javascript:void(0)" rel="<?php echo $row['id'] ?>" class="delete_link"><p  class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></p></a>
+
+                                        <!-- <a href="?delete=<?php //echo $row['id'] ?>" class="text-danger bg-dark" onclick="javascript: return confirm('Are sure to delete this?')"><span class="btn btn-danger glyphicon glyphicon-remove" area-hidden="true"></span></a> -->
+                                    </td>
                                 </tr>
                             </tbody>
                         <?php endwhile ?>
@@ -113,5 +122,17 @@
 
             </div>
             <!-- /.container-fluid -->
+            <script>
+    
+$(document).ready(function(){
+    $(".delete_link").on('click',function(){
+        var id = $(this).attr("rel");
+        var deleteUrl = "?delete="+id+"";
+        $(".modalDeleteLink").attr("href", deleteUrl );
+        $("#myModal").modal('show');
+    });
+}); 
+
+</script>
 
 <?php include_once "include/footer.php" ?>

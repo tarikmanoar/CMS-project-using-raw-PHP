@@ -16,5 +16,15 @@ $(document).ready(function(){
 		}
 
 	});
-	
+	//End Check
+
+	//tags
+	$('#tags').val("");
+
+	// $('#tags').tagsinput();
+ //    $('form').ajaxForm(function(){
+	// 	$('#tags').val("");
+ //    }); 
+	//tags
+
 });

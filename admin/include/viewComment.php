@@ -1,4 +1,4 @@
-<?php 
+  <?php 
     //Delete Data From Data Base....
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
@@ -126,7 +126,7 @@
                                     </td>
                                     <td>
                                     	<a href="Comment.php?var=editComment&edit=<?php echo $row['comment_id'] ?>"><p class="btn btn-success" title="Edit this comment"><span class=" glyphicon glyphicon-edit"></span></p></a>
-                                    	<a href="Comment.php?delete=<?php echo $row['comment_id'] ?>"><p class="btn btn-danger" title="Delete Comment"><span class=" glyphicon glyphicon-remove"></span></p></a>
+                                    	<a href="Comment.php?delete=<?php echo $row['comment_id'] ?>"><p class="btn btn-danger" title="Delete Comment" onclick="javascript: return confirm('Are sure to delete this?')"><span class=" glyphicon glyphicon-remove"></span></p></a>
                                     </td>
                                 </tr>
                         <?php } ?>

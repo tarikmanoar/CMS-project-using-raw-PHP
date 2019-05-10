@@ -63,7 +63,19 @@
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Author</label>
-                         <input required="on" type="text" class="form-control" name="post_author" value="<?php echo $row['post_author'] ?>">
+
+                         <select name="post_author" class="form-control">
+                            <?php 
+
+                                $selectAuthor = mysqli_query($dbconn,"SELECT * FROM users");
+                                while ($auth_row = mysqli_fetch_assoc($selectAuthor)) {
+                                    ?>
+                                    <option value="<?php echo $auth_row['username']; ?>"><?php echo $auth_row['username']; ?></option>
+                                    <?php
+                                }
+
+                            ?>
+                         </select> 
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Images</label><br>

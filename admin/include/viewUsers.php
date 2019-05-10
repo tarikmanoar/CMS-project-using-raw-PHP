@@ -1,11 +1,16 @@
 <?php 
     //Delete Data From Data Base....
     if (isset($_GET['delete'])) {
-        $id = $_GET['delete'];
-        $result = mysqli_query($dbconn,"DELETE FROM users WHERE user_id='$id'");
-        if ($result) {
-            header("Location: users.php");
+        if (isset($_SESSION['user_role'])) {
+            if ($_SESSION['user_role'] == 'Admin') {
+                $id = mysqli_real_escape_string($dbconn,$_GET['delete']);
+                $result = mysqli_query($dbconn,"DELETE FROM users WHERE user_id='$id'");
+                if ($result) {
+                    header("Location: users.php");
+                }
+            }
         }
+        
     }
     //Approved Data From Data Base....
     if (isset($_GET['admin'])) {
@@ -76,7 +81,7 @@
 
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-success" name="submit"><span class="glyphicon glyphicon-ok" area-hidden="true"></span></button>
-                        <a href="addUsers.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" area-hidden="true"></span></a>
+                        <a href="users.php?var=add_users" class="btn btn-primary"><span class="glyphicon glyphicon-plus" area-hidden="true"></span></a>
                     </div>
                 <table class="table table-inverse table-bordered table-dark table-hover">
                     <thead>
@@ -116,7 +121,11 @@
                                     </td>
                                     <td>
                                     	<a href="users.php?var=edit_users&edit=<?php echo $row['user_id'] ?>"><p class="btn btn-success" title="Edit User Profile"><span class="glyphicon glyphicon-edit" area-hidden="true"></span></p></a>
-                                    	<a href="users.php?delete=<?php echo $row['user_id'] ?>"><p class="btn btn-danger" title="Delete User Profile"><span class=" glyphicon glyphicon-remove" area-hidden="true"></span></p></a>
+
+                                        <a href="javascript:void(0)" rel="<?php echo $row['user_id'] ?>" class="delete_link"><p  class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></p></a>
+
+
+                                    	<!-- <a href="users.php?delete=<?php //echo $row['user_id'] ?>"><p class="btn btn-danger" title="Delete User Profile" onclick="javascript: return confirm('Are sure to delete this?')"><span class=" glyphicon glyphicon-remove" area-hidden="true"></span></p></a> -->
                                     </td>
                                 </tr>
                         <?php } ?>
@@ -129,3 +138,15 @@
     </div>
 
 </div>
+<script>
+    
+$(document).ready(function(){
+    $(".delete_link").on('click',function(){
+        var id = $(this).attr("rel");
+        var deleteUrl = "users.php?delete="+id+"";
+        $(".modalDeleteLink").attr("href", deleteUrl );
+        $("#myModal").modal('show');
+    });
+}); 
+
+</script>

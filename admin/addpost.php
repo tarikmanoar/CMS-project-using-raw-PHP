@@ -31,10 +31,10 @@
                         $post_content = $_POST['post_content'];
                         $post_tags = $_POST['post_tags'];
                         $post_status = $_POST['post_status'];
-                        $date = date("Y-m-d h:i:s-a");
+                        $date = date("l jS  F Y");
                         //$post_comment_count = 4;
 
-                        $sql = "INSERT INTO posts( post_ctg_id, post_title,post_author,date,post_image, post_content, post_tags,post_status) VALUES ('$post_ctg_id','$post_title','$post_author',NOW(),'$post_image_des', '$post_content','$post_tags','$post_status')";
+                        $sql = "INSERT INTO posts( post_ctg_id, post_title,post_author,date,post_image, post_content, post_tags,post_status) VALUES ('$post_ctg_id','$post_title','$post_author','$date','$post_image_des', '$post_content','$post_tags','$post_status')";
                         $result = mysqli_query($dbconn,$sql);
                         echo "<p class='bg-info'>Post has been Updated. <a target='blank' href='viewpost.php'>View Post</a></p>";
                         if (!$result) {
@@ -51,8 +51,8 @@
                         <label class="form-control-label">Post Category ID</label>
                         <select name="post_ctg_id" class="form-control" >
                         <?php 
-                        $menuItem = $dbconn->query("SELECT * FROM `categories`");
-                        while ($ctgRow = $menuItem->fetch_assoc()) {
+                        $menuItem = $dbconn->query("SELECT * FROM categories");
+                        while ($ctgRow = mysqli_fetch_assoc($menuItem)) {
                         ?>
                         <option value="<?php echo $ctgRow['ctg_title']; ?>"><?php echo $ctgRow['ctg_title']; ?></option>
                         <?php
@@ -67,7 +67,20 @@
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Author</label>
-                         <input type="text" class="form-control" name="post_author" autocomplete="off">
+                         <!-- <input type="text" class="form-control" name="post_author" autocomplete="off"> -->
+                         <select name="post_author" class="form-control">
+                            <?php 
+
+                                $selectAuthor = mysqli_query($dbconn,"SELECT * FROM users");
+                                while ($row = mysqli_fetch_assoc($selectAuthor)) {
+                                    ?>
+                                    <option value="<?php echo $row['username']; ?>"><?php echo $row['username']; ?></option>
+                                    <?php
+                                }
+
+                            ?>
+                         </select>
+
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Images</label>
@@ -79,7 +92,7 @@
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Tags</label>
-                         <input type="text" class="form-control" name="post_tags" autocomplete="off">
+                         <input type="text" class="form-control" name="post_tags" autocomplete="off" id="tags" data-role="tagsinput">
                      </div>
                      <div class="form-group">
                         <label class="form-control-label">Post Status</label>
