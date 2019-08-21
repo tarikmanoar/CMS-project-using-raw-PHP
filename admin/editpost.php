@@ -34,6 +34,15 @@
                         $post_image_des = "upload/".$p_img_name;
                         move_uploaded_file($p_img_temp,$post_image_des);
 
+                        //if post image is empty
+                        if (empty($p_img_name)) {
+                            $query  = "SELECT * FROM posts WHERE id='$id'";
+                            $selectImg = mysqli_query($dbconn,$query);
+                            while ($row = mysqli_fetch_assoc($selectImg)) {
+                                $post_image_des = $row['post_image'];
+                            }
+                        }
+
                         $post_content = $_POST['post_content'];
                         $post_tags = $_POST['post_tags'];
                         $post_status = $_POST['post_status'];
