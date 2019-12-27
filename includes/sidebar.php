@@ -73,10 +73,11 @@
             <div class="desc">Stay updated via social channels</div>
             <div class="social-icons">
                 <ul>
-                    <li class="twitter"><a href="https://twitter.com/Sohanur36124514"><img src="http://localhost/WP/lw-shohan/wp-content/themes/revenue-pro/assets/img/icon-twitter.png" alt=""></a></li>
-                    <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100011483197907"><img src="http://localhost/WP/lw-shohan/wp-content/themes/revenue-pro/assets/img/icon-facebook.png" alt=""></a></li>
-                    <li class="youtube"><a href="https://www.youtube.com/channel/UCCffvnY5Yp_r9rl98g8-EzQ?view_as=subscriber&amp;fbclid=IwAR3TANyxj9X3_uf8U0ccoQL0iPX0EgFdpbP1HvKrcmXZMrvlH3xdeodX22U"><img src="http://localhost/WP/lw-shohan/wp-content/themes/revenue-pro/assets/img/icon-youtube.png" alt=""></a></li>
-                    <li class="linkedin"><a href="https://www.linkedin.com/in/sohanur-rahman-bb085b171/?fbclid=IwAR2C1ecRSeVUKaRIJ82hlU4ACCURTlaI0VYy98FyuNU_KYMadOtJxa10DMI"><img src="http://localhost/WP/lw-shohan/wp-content/themes/revenue-pro/assets/img/icon-linkedin.png" alt=""></a></li>
+                <li><a href="http://www.facebook.com/tarikmanoar"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com/tarikmanoar"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.twitter.com/tarikmanoar"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="http://www.twitter.com/tarikmanoar"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="http://www.twitter.com/tarikmanoar"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
